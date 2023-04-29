@@ -1,0 +1,98 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0e5fa;
+}
+
+h1.display-4 {
+    color: #4b0082;
+}
+
+.btn-primary {
+    background-color: #4b0082;
+    border: 1px solid #4b0082;
+    transition: all 0.3s ease;
+    transform: scale(1);
+    box-shadow: 0 0 0 rgba(75, 0, 130, 0);
+    position: relative;
+    overflow: hidden;
+}
+
+    .btn-primary:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.1);
+        opacity: 0;
+        transform: translateX(-100%) translateY(-100%) rotate(45deg);
+        transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+        background-color: #6a2cb2;
+        border: 1px solid #6a2cb2;
+        transform: scale(1.05);
+        box-shadow: 0 0 10px rgba(75, 0, 130, 0.5);
+    }
+
+        .btn-primary:hover:before {
+            opacity: 1;
+            transform: translateX(100%) translateY(100%) rotate(45deg);
+        }
+
+    .btn-primary:active {
+        background-color: #9c4dcc;
+        border: 1px solid #9c4dcc;
+        box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
+        transform: scale(0.98);
+    }
+
+.container {
+    background-color: white;
+    border-radius: 5px;
+    padding: 20px;
+    margin-top: 50px;
+    box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.robotin-image {
+    max-width: 200px;
+    display: block;
+    margin: 30px auto;
+}
+.footer-sticky {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+body {
+    position: relative;
+    min-height: 100vh;
+    padding-bottom: 56px; /* Altura del footer */
+}
+.loader {
+    display: none;
+    border: 8px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 8px solid #4b0082;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+.robotin-imageask {
+    width: 5%;
+    height: auto;
+}

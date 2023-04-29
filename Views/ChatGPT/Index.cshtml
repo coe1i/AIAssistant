@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="~/defi.png" type="image/png" sizes="16x16">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/site.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <form action="@Url.Content("~/ChatGPT/Index")" method="post" id="chatGPTForm">
+
+                    <div class="d-flex align-items-center">
+                        <h3 class="mb-0 mr-2">Pregúntame algo</h3>
+                        <img src="@Url.Content("~/sintexto.png")" alt="Robotin" class="robotin-imageask" />
+                    </div>
+                    <br />
+                    <input class="form-control" name="pSolicitud" id="pSolicitud" />
+                    <br />
+                    <div class="loader" id="loader"></div>
+                    <p class="text-danger" id="warningMessage" style="display: none;">No has escrito nada.</p>
+                    <p>
+                        @Html.Raw(ViewBag.Respuesta)
+                    </p>
+                    <br />
+                    <input class="btn btn-primary" type="submit" value="Generar Respuesta" />
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $("#chatGPTForm").on("submit", function (e) {
+                var inputText = $("#pSolicitud").val().trim();
+                if (inputText === "") {
+                    e.preventDefault();
+                    $("#warningMessage").show();
+                    $("#loader").hide();
+                } else {
+                    $("#warningMessage").hide();
+                    $("#loader").show();
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
+

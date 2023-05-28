@@ -14,7 +14,7 @@ namespace openai.Controllers
         /// <summary>
         /// pasarle las variables de entorno a ebs, formato de clave - val y cifrado
         /// </summary>
-        public static string _APIKey = "";
+        public static string _APIKey = "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";
 
         public IActionResult Index()
         {

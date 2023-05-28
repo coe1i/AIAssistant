@@ -15,7 +15,7 @@ namespace openai.Controllers
     {
         public static string _EndPoint = "https://api.openai.com/";
         public static string _URI = "https://api.openai.com/v1/images/generations";
-        public static string _APIKey = "";
+        public static string _APIKey = "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";
 
         public IActionResult Index()
         {
@@ -33,7 +33,7 @@ namespace openai.Controllers
                 client.DefaultRequestHeaders.Clear();
 
                 // add header authorization and use your API KEY
-                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", "");
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", "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");
 
                 //  call the  api using post method and set the content type to application/json
                 var Message = await client.PostAsync("https://api.openai.com/v1/images/generations",

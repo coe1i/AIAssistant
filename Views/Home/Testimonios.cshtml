@@ -1,0 +1,80 @@
+﻿@{
+    ViewData["Title"] = "Testimonios";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="~/defi.png" type="image/png" sizes="16x16">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/site.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        h1 {
+            color: #4b0082;
+        }
+
+        .comment-container {
+            margin-bottom: 1rem;
+        }
+
+        .user-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 1rem;
+        }
+
+        .comment-content {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="d-flex align-items-center">
+            <h1>Testimonios de nuestros clientes</h1>
+            <img src="@Url.Content("~/sintexto.png")" alt="Robotin" class="robotin-imageask" />
+    </div>
+    <div class="container mt-5">
+        
+        <div class="comment-container">
+            <div class="d-flex">
+                <img src="@Url.Content("~/gilipollas.jpg")" alt="User 1" class="user-avatar">
+                <div class="comment-content">
+                    <h5>Usuario 1</h5>
+                    <p>Esta app es increíble. Me ha ayudado mucho en mi día a día. La recomiendo a todos mis amigos y familiares.</p>
+                </div>
+            </div>
+        </div>
+        <div class="comment-container">
+            <div class="d-flex">
+                <img src="@Url.Content("~/gilipollas2.jpg")" alt="User 2" class="user-avatar">
+                <div class="comment-content">
+                    <h5>Usuario 2</h5>
+                    <p>La app es muy fácil de usar y me ha proporcionado información valiosa en momentos clave. ¡Muy satisfecho con mi experiencia!</p>
+                </div>
+            </div>
+        </div>
+        <div class="comment-container">
+            <div class="d-flex">
+                <img src="@Url.Content("~/gilipollas2.jpg")" alt="User 3" class="user-avatar">
+                <div class="comment-content">
+                    <h5>Usuario 3</h5>
+                    <p>Desde que empecé a usar esta app, mi vida ha mejorado significativamente. Estoy muy agradecido por el servicio que ofrece.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -61,6 +61,7 @@ h1.display-4 {
     max-width: 200px;
     display: block;
     margin: 30px auto;
+    animation: moveUpDown 2s linear infinite;
 }
 .footer-sticky {
     position: absolute;
@@ -95,4 +96,21 @@ body {
 .robotin-imageask {
     width: 5%;
     height: auto;
+}
+.robotin-carrusel {
+    width: 20%;
+    height: auto;
+}
+@keyframes moveUpDown {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.robotin-imageask {
+    animation: moveUpDown 2s linear infinite;
 }

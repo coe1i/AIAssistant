@@ -17,7 +17,9 @@
 <body>
     <div class="container">
         <div class="text-center">
-            <h1 class="display-4">hola</h1>
+            <h1 class="display-4">¡Bienvenido!</h1>
+            <p>Visitas: <span id="visitCounter"></span></p>
+
             <br />
             <br />
             <br />
@@ -31,6 +33,22 @@
             <img src="./defi.png" alt="Robotin" class="robotin-image">
             <br />
         </div>
+    <div class="wave">
+        <main>
+   
+    </div>
+    </main>
     </div>
 </body>
+<script>
+    window.onload = function () {
+        fetch('/Home/Visit')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('visitCounter').textContent = data.visits;
+            });
+    }
+
+
+</script>
 </html>

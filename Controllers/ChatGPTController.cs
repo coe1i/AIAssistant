@@ -10,11 +10,7 @@ namespace openai.Controllers
     {
         public static string _EndPoint = "https://api.openai.com/";
         public static string _URI = "v1/chat/completions";
-        //integrar api en ssm parameterstore (opcion 1)
-        /// <summary>
-        /// pasarle las variables de entorno a ebs, formato de clave - val y cifrado
-        /// </summary>
-        public static string _APIKey = "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";
+        public static string _APIKey = "b";
 
         public IActionResult Index()
         {

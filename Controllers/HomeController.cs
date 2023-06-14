@@ -38,6 +38,17 @@ namespace openai.Controllers
         {
             return View();
         }
+        
+            private static int visitCounter = 0;
+
+
+            [HttpGet]
+            public JsonResult Visit()
+            {
+                visitCounter++;
+                return Json(new { visits = visitCounter });
+            }
+        
 
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

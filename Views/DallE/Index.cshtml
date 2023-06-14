@@ -2,37 +2,50 @@
     ViewData["Title"] = "DallE";
 }
 
-<h1 class="display-4">DALL-E API in .NET</h1>
-<!--Text area for the prompt text-->
-<textarea class="form-control" id="txt" style="width:500px;" placeholder="Enter your text here"></textarea>
-<br />
 
-<!-- Input for desired number of images -->
-<input type="number" value="1" placeholder="Enter quantity" id="quantity" />
+<div class="container">
+    <h1 class="display-4">Escribe algo y generaré una imagen
+        
+            <img src="@Url.Content("~/sintexto.png")" alt="Robotin" class="robotin-imageask" />
+      
+    </h1>
+    <br />
+    <div class="row justify-content-center">
+        <div class="col-sm-12 col-md-8">
+            <textarea class="form-control" id="txt" placeholder="Enter your text here"></textarea>
+            <br />
 
-<!--Combobox for the desired image size-->
-<select id="sel">
-    <option selected>256x256</option>
-    <option>512x512</option>
-    <option>1024x1024</option>
-</select>
-
-<!--Generate button-->
-<button id="btn">
-    Generate
-</button>
-<br />
-<!--div for displaying the images-->
-<div id="display" class="col-md-12 row">
+            <div class="d-flex justify-content-between align-items-center">
+                <input type="number" value="1" class="form-control w-auto" placeholder="Enter quantity" id="quantity" />
+                <select id="sel" class="form-control w-auto">
+                    <option selected>256x256</option>
+                    <option>512x512</option>
+                    <option>1024x1024</option>
+                </select>
+                <br />
+                <button id="btn" class="btn btn-primary">
+                    Pintar
+                </button>
+            </div>
+            <br />
+               <br />
+            <br />
+            <div id="spinner" class="loader"></div>
+        </div>
+    </div>
+    <br />
+    <br />
+    <div id="display" class="row">
+    </div>
 </div>
 
-<!-- Add this line to load jQuery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
 <script>
     $(document).ready(() => {
 
         $('#btn').click(function () {
+
+            $('#spinner').show();
 
             var input = {};
             input.n = parseInt($('#quantity').val());
@@ -40,19 +53,25 @@
             input.size = $('#sel').find(":selected").val();
 
             $.ajax({
-                url: '/DallE/GenerateImage',  // Updated route
+                url: '/DallE/GenerateImage',
                 method: 'post',
                 contentType: 'application/json',
                 data: JSON.stringify(input)
 
             }).done(function (data) {
 
-                $.each(data.data, function () {
+                $.each(data.data, function (i, item) {
+                    var imgID = "img-" + i; // Generate an unique ID for each image
                     $('#display').append(
-                        '<div class="col-md-3 p-10" style="padding-top:10px">' +
-                        '<img class="p-10" src = "' + this.url + '"/>' +
+                        '<div class="col-sm-6 col-md-3 p-10">' +
+                        '<img id="' + imgID + '" class="p-10 img-fluid" src = "' + item.url + '"/> <br>' +
+                        
+                        '<a href="' + item.url + '" download="generated-image-' + i + '.png" class="btn btn-primary">Descargar</a>' +
                         '</div>');
                 });
+
+                $('#spinner').hide();
+
             });
         });
     });

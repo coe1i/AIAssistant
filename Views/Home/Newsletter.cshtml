@@ -2,6 +2,7 @@
     ViewData["Title"] = "Newsletter";
 }
 <h1>@ViewData["Title"]</h1>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <div class="container">
     <div class="d-flex align-items-center">
@@ -26,13 +27,28 @@
             <label for="email">Email:</label>
             <input type="email" class="form-control" id="email" name="email" required>
         </div>
+      
         <div class="form-group form-check">
             <label class="form-check-label">
                 <input class="form-check-input" type="checkbox" name="agree" required> Acepto la política de privacidad.
             </label>
         </div>
-        <button type="submit" class="btn btn-primary">Suscribirse</button>
+        <br />
+        <button type="submit" id="submit-button" class="btn btn-primary">Suscribirse</button>
     </form>
-
+    <br />
     <p>Al suscribirte a nuestro boletín, aceptas recibir correos electrónicos de AI Assistant. Puedes cancelar tu suscripción en cualquier momento.</p>
 </div>
+
+<script>
+    document.getElementById('submit-button').addEventListener('click', function (e) {
+        e.preventDefault();
+        Swal.fire({
+            icon: 'success',
+            title: 'Formulario enviado',
+            showConfirmButton: false,
+            timer: 1500
+        })
+         e.target.form.submit();
+    });
+</script>

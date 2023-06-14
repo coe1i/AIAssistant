@@ -15,7 +15,7 @@ namespace openai.Controllers
     {
         public static string _EndPoint = "https://api.openai.com/";
         public static string _URI = "https://api.openai.com/v1/images/generations";
-        public static string _APIKey = "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";
+        public static string _APIKey = "b";
 
         public IActionResult Index()
         {
@@ -25,23 +25,15 @@ namespace openai.Controllers
         [HttpPost]
         public async Task<IActionResult> GenerateImage([FromBody] input input)
         {
-            // create a response object
             var resp = new ResponseModel();
             using (var client = new HttpClient())
             {
-                // clear the default headers to avoid issues
+                // quitamos el header si existe
                 client.DefaultRequestHeaders.Clear();
-
-                // add header authorization and use your API KEY
-                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", "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");
-
-                //  call the  api using post method and set the content type to application/json
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", "b");
                 var Message = await client.PostAsync("https://api.openai.com/v1/images/generations",
                     new StringContent(JsonConvert.SerializeObject(input), Encoding.UTF8, "application/json"));
 
-                // if result OK
-                // read the content and deserialize it using the Response Model
-                // then return the response object
                 if (Message.IsSuccessStatusCode)
                 {
 

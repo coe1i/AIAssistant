@@ -3,32 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="./defi.png" type="image/png" sizes="16x16">
+    
+        <link rel="icon" href="C:\Users\Usuario\Desktop\openai-main\Views\Home\defi.png" type="image/png">
+  
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/site.css">
+    <link rel="stylesheet" href="./css/smile.css">
+    <link rel="stylesheet" href="~/css/smile.css" asp-append-version="true" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
-    <title>@ViewData["Title"]</title>
+    <title>@ViewData["Imágenes"]</title>
 </head>
 <body>
     <div class="container">
         <div class="text-center">
-            <h1 class="display-4">hola</h1>
+            <h1 class="display-4">¡Bienvenido!</h1>
             <br />
             <br />
             <br />
-            <h3>¡Puedo solucionar cualquiera de tus dudas!</h3>
+            <h3>¡Pincha para generar arte!</h3>
             <br />
             <br />
             <a href="@Url.Content("~/dalle")" class="btn btn-primary">Iniciar</a>
             <br />
             <br />
             <br />
-            <img src="./defi.png" alt="Robotin" class="robotin-image">
+            <svg role="img" class="smiley" id="body2" viewBox="0 0 128 128" width="128px" height="128px">
+                <defs>
+                    <clipPath id="smiley-eyes">
+                        <circle class="smiley__eye1" cx="64" cy="64" r="8" transform="rotate(-40,64,64) translate(0,-56)" />
+                        <circle class="smiley__eye2" cx="64" cy="64" r="8" transform="rotate(40,64,64) translate(0,-56)" />
+                    </clipPath>
+                    <linearGradient id="smiley-grad" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#000" />
+                        <stop offset="100%" stop-color="#fff" />
+                    </linearGradient>
+                    <mask id="smiley-mask">
+                        <rect x="0" y="0" width="128" height="128" fill="url(#smiley-grad)" />
+                    </mask>
+                </defs>
+                <g stroke-linecap="round" stroke-width="12" stroke-dasharray="175.93 351.86">
+                    <g>
+                        <rect fill="hsl(193,90%,50%)" width="128" height="64" clip-path="url(#smiley-eyes)" />
+                        <g fill="none" stroke="hsl(193,90%,50%)">
+                            <circle class="smiley__mouth1" cx="64" cy="64" r="56" transform="rotate(180,64,64)" />
+                            <circle class="smiley__mouth2" cx="64" cy="64" r="56" transform="rotate(0,64,64)" />
+                        </g>
+                    </g>
+                    <g mask="url(#smiley-mask)">
+                        <rect fill="hsl(223,90%,50%)" width="128" height="64" clip-path="url(#smiley-eyes)" />
+                        <g fill="none" stroke="hsl(223,90%,50%)">
+                            <circle class="smiley__mouth1" cx="64" cy="64" r="56" transform="rotate(180,64,64)" />
+                            <circle class="smiley__mouth2" cx="64" cy="64" r="56" transform="rotate(0,64,64)" />
+                        </g>
+                    </g>
+                </g>
+            </svg>
             <br />
         </div>
     </div>
